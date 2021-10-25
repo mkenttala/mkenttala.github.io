@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <h1>ServiceWorker Test</h1>
+        <p id="p1"></p>
+        <script>
+            function log(txt) {
+                document.getElementById("p1").innerHTML += txt + "<br>";
+            }
+
+            log("navigator.serviceWorker: " + (navigator.serviceWorker ? "supported" : "not supported"));
+
+            navigator.serviceWorker.register("serviceworker.js").then(
+                function(registration) {
+                    log("navigator.serviceWorker.register: " + registration);
+                },
+                function(error) {
+                    log("navigator.serviceWorker.register: " + error);
+                }
+            );
+        </script>
+    </body>
+</html>
